@@ -24,12 +24,12 @@
   position: relative;
   overflow: hidden;
   border-radius: 10px;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 40px rgba(0, 0, 0);
   cursor: pointer;
 }
 
 .card:hover {
-  box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.2);
+  box-shadow: 20px rgba(0, 0, 0);
   transform: translateY(-5px);
 }
 
@@ -52,4 +52,6 @@
   font-size: 18px; /* ajusta el valor de acuerdo a tus necesidades */
   font-weight: bold;
   color: white;
+  border-color: black;
+  border-width: 5px;
 }
