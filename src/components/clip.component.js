@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import ClipsDataService from "../services/clip.service";
 import '../styles/clip.css'
+import ReactionsComponent from "./reacciones.component";
+import CommentsComponent from "./comentarios.component";
 
 export default class Clip extends Component {
   constructor(props) {
@@ -13,11 +15,11 @@ export default class Clip extends Component {
 
     this.state = {
       currentClip: {
-        id: null,
-        title: "",
-        description: "",
-        published: false,
-        url: "",
+        id: props.clip.id,
+        title: props.clip.title,
+        description: props.clip.description,
+        published: props.clip.published,
+        url: props.clip.url,
       },
       message: "",
     };
@@ -127,34 +129,8 @@ export default class Clip extends Component {
                   </video>
                 </div>
                 <h4>{currentClip.title}</h4>
-                <div class="reactions">
-                  <div class="reaction reaction-like"></div>
-                  <div class="reaction reaction-love"></div>
-                  <div class="reaction reaction-haha"></div>
-                  <div class="reaction reaction-wow"></div>
-                  <div class="reaction reaction-sad"></div>
-                  <div class="reaction reaction-angry"></div>
-                </div>
-                <div class="comments-section">
-                  <h4>Comments</h4>
-                  <form>
-                    <div class="form-group">
-                      <label for="comment-input">Leave a comment:</label>
-                      <textarea id="comment-input" name="comment" rows="4" placeholder="Write your comment here..."></textarea>
-                    </div>
-                    <button type="submit">Submit</button>
-                  </form>
-                  <div class="comments-list">
-                    <div class="comment">
-                      <h5>User1</h5>
-                      <p>This is a comment.</p>
-                    </div>
-                    <div class="comment">
-                      <h5>User2</h5>
-                      <p>This is another comment.</p>
-                    </div>
-                  </div>
-                </div>
+                < ReactionsComponent />
+                < CommentsComponent />
               </form>
             </div>
 

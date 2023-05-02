@@ -56,7 +56,9 @@ export default class AddClip extends Component {
               url: myurl
             }, () => {
               // si la URL se ha actualizado, guardar en la base de datos
-              this.saveClip();
+              if (this.state.url !== "") {
+                this.saveClip();
+              }
             });
           });
       }
@@ -73,41 +75,22 @@ export default class AddClip extends Component {
       title: this.state.title,
       description: this.state.description,
       published: false,
-      url: "" // url inicialmente vacío
+      url: this.state.url // asignar la URL al objeto 'data'
     };
 
-    const uploadTask = storage.ref('/clips/' + this.state.file.name).put(this.state.file);
-    uploadTask.on(
-      "state_changed",
-      (snapshot) => {
-        // obtener la fracción de bytes cargados hasta el momento
-        const progress = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
-        this.setState({ progress: progress }); // actualizar el estado de progreso
-      },
-      console.error,
-      () => {
-        storage
-          .ref("clips")
-          .child(this.state.file.name)
-          .getDownloadURL()
-          .then((myurl) => {
-            data.url = myurl; // asignar la URL al objeto 'data'
-            ClipsDataService.create(data)
-              .then(() => {
-                console.log("Created new item successfully!");
-                this.setState({
-                  loading: false, // establecer loading en falso al completar la carga
-                  submitted: true,
-                  message: "The clip was uploaded successfully.",
-                  progress: 0 // restablecer la barra de progreso
-                });
-              })
-              .catch((e) => {
-                console.log(e);
-              });
-          });
-      }
-    );
+    ClipsDataService.create(data)
+      .then(() => {
+        console.log("Created new item successfully!");
+        this.setState({
+          loading: false, // establecer loading en falso al completar la carga
+          submitted: true,
+          message: "The clip was uploaded successfully.",
+          progress: 0 // restablecer la barra de progreso
+        });
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   }
 
 

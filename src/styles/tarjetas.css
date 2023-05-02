@@ -1,21 +1,22 @@
 .contenedorDeMiniatura {
+  width: 60%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  margin: 0 auto;
-  max-width: 1200px; /* ajusta el valor de acuerdo a tus necesidades */
+  margin: 100px 50px;
 }
 
 .miniatura {
-  width: calc(60% / 3); /* para mostrar 3 tarjetas por fila */
+  width: 30%; /* para mostrar 3 tarjetas por fila */
   margin-bottom: 10px; /* ajusta el valor de acuerdo a tus neces60idades */
+  margin-right: 10px;
 }
 
 @media screen and (min-width: 768px) {
   /* para pantallas con un ancho mínimo de 768px */
   .miniatura {
-    width: calc(60% / 4); /* para mostrar 4 tarjetas por fila */
+    width: 25%; /* para mostrar 4 tarjetas por fila */
   }
 }
 

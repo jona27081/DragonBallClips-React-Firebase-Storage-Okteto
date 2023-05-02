@@ -105,6 +105,7 @@ export default class ClipsList extends Component {
             <Clip
               clip={currentClip}
               refreshList={this.refreshList}
+              key={currentClip.id} // agregar una clave única
             />
           ) : (
             <div>
