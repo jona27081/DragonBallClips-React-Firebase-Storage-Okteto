@@ -13,6 +13,8 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 16.x
+      - name: n
+        run: npm i
       - name: CI
         run: npm ci
    #   - name: Test
