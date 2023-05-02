@@ -45,6 +45,7 @@
   /* para ajustar la altura del video al 100% del contenedor */
   object-fit: cover;
   /* para cubrir el contenedor de video sin deformar la imagen */
+  box-shadow: 0 0 20px rgb(0, 0, 0);
 }
 
 .reactions {
