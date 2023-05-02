@@ -20,4 +20,6 @@ class ClipsDataService {
   }
 }
 
-export default ClipsDataService();
+const clipsDataServiceInstance = new ClipsDataService();
+
+export default clipsDataServiceInstance;
