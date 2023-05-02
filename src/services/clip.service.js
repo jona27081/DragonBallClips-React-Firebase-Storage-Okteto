@@ -20,4 +20,4 @@ class ClipsDataService {
   }
 }
 
-export default new ClipsDataService();
+export default ClipsDataService();
