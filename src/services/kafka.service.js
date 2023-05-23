@@ -19,4 +19,5 @@ class KafkaService {
 
 }
 
-export default new KafkaService();
+const KafkaServiceInstance = new KafkaService();
+export default KafkaServiceInstance;
