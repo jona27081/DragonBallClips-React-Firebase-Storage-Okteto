@@ -1,11 +1,30 @@
 import React from "react";
 import '../styles/clip.css'
+import KafkaService from "../services/kafka.service";
+
+function saveLike(e, status) {
+  let data = {
+    id: 0,
+    status: status
+  };
+
+  console.log(JSON.stringify(data));
+  KafkaService.reaction("i-love-jona");
+  e.preventDefault();
+}
+
 
 function ReactionsComponent() {
   return (
     <div class="reactions">
-      <div class="reaction reaction-like"></div>
-      <div class="reaction reaction-love"></div>
+      <div class="reaction reaction-like"></div>      
+      
+      <div className="reaction reaction-love" onClick={(e) => {
+        e.preventDefault();
+        saveLike(e, 1);
+      }}>
+      </div>
+
       <div class="reaction reaction-haha"></div>
       <div class="reaction reaction-wow"></div>
       <div class="reaction reaction-sad"></div>
