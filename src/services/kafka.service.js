@@ -1,8 +1,8 @@
 class KafkaService {
     url = 'https://nodeproducer-service-jona27081.cloud.okteto.net/';
 
-    reaction = async (name) => {
-        await fetch(this.url + 'like?name=' + name, {
+    reactionPush = async (reaction) => {
+        await fetch(this.url + 'like?reactionName=' + reaction, {
             method: 'GET',
             headers: {
                 'Content-type': 'application/json; charset=UTF-8',
