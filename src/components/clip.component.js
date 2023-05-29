@@ -3,6 +3,9 @@ import ClipsDataService from "../services/clip.service";
 import '../styles/clip.css'
 import ReactionsComponent from "./reacciones.component";
 import CommentsComponent from "./comentarios.component";
+import "../Google-Login/Login.css"
+import { Link } from "react-router-dom";
+
 
 export default class Clip extends Component {
   constructor(props) {
@@ -115,7 +118,7 @@ export default class Clip extends Component {
 
   render() {
     const { currentClip } = this.state;
-
+    const user = localStorage.getItem('user');
     return (
       <div className="clip-container">
         <div class="clip">
@@ -129,8 +132,18 @@ export default class Clip extends Component {
                   </video>
                 </div>
                 <h4>{currentClip.title}</h4>
-                < ReactionsComponent />
-                < CommentsComponent />
+                {user ?
+                  <><ReactionsComponent />
+                    <CommentsComponent /></>
+                  :
+                  <div className="section">
+                  <h5>Inicia sesion para poder comentar y reaccionar</h5>
+                  <Link class="google-login-button" to={"/add"}>
+                    <span class="icon"></span>
+                    Iniciar sesión con Google
+                  </Link>
+                  </div>
+                }
               </form>
             </div>
 
