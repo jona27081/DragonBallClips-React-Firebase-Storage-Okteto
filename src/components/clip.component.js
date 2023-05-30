@@ -133,15 +133,19 @@ export default class Clip extends Component {
                 </div>
                 <h4>{currentClip.title}</h4>
                 {user ?
-                  <><ReactionsComponent />
-                    <CommentsComponent /></>
+                  <>
+                    <ReactionsComponent 
+                    id={currentClip.id}
+                    />
+                    <CommentsComponent />
+                  </>
                   :
                   <div className="section">
-                  <h5>Inicia sesion para poder comentar y reaccionar</h5>
-                  <Link class="google-login-button" to={"/add"}>
-                    <span class="icon"></span>
-                    Iniciar sesión con Google
-                  </Link>
+                    <h5>Inicia sesion para poder comentar y reaccionar</h5>
+                    <Link class="google-login-button" to={"/add"}>
+                      <span class="icon"></span>
+                      Iniciar sesión con Google
+                    </Link>
                   </div>
                 }
               </form>
