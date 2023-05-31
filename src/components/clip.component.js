@@ -137,7 +137,9 @@ export default class Clip extends Component {
                     <ReactionsComponent 
                     id={currentClip.id}
                     />
-                    <CommentsComponent />
+                    <CommentsComponent
+                    id={currentClip.id}
+                    />
                   </>
                   :
                   <div className="section">
