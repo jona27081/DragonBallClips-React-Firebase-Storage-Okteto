@@ -24,6 +24,7 @@ const CommentsComponent = ({ id }) => {
   };
 
   const comment = (e, status) => {
+    fetchComments();
     const user = localStorage.getItem('user');
     const data = {
       userId: user,
